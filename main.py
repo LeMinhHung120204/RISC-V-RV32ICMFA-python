@@ -1,5 +1,5 @@
 # main.py
-from encoder import RV32I, RV32M, RV32C, RV32F, RV32A  # sau này thêm RV32A, RV32F, RV32C tại đây
+from encoder import RV32I, RV32M, RV32C, RV32F, RV32A 
 
 def read_assembly_file(filename):
     with open(filename, 'r') as f:
