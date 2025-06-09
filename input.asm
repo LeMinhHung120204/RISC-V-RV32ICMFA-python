@@ -10,16 +10,6 @@ sra x22, x23, x24
 slt x25, x26, x27
 sltu x28, x29, x30
 
-# RV32M instructions
-mul x1, x2, x3
-mulh x4, x5, x6
-mulhsu x7, x8, x9
-mulhu x10, x11, x12
-div x13, x14, x15
-divu x16, x17, x18
-rem x19, x20, x21
-remu x22, x23, x24
-
 # I-type (Immediate)
 addi x1, x2, 10
 xori x3, x4, 15
@@ -54,6 +44,16 @@ bgeu x11, x12, 28
 # J-type
 jal x1, 100
 jalr x2, x3, 4
+
+# RV32M instructions
+mul x1, x2, x3
+mulh x4, x5, x6
+mulhsu x7, x8, x9
+mulhu x10, x11, x12
+div x13, x14, x15
+divu x16, x17, x18
+rem x19, x20, x21
+remu x22, x23, x24
 
 # U-type
 lui x4, 4096       # = 0x1000
