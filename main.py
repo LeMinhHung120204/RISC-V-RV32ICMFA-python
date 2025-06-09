@@ -18,10 +18,10 @@ def dispatch_encoder(mnemonic):
         return RV32I.encode
     if mnemonic in RV32F.instruction_map:
         return RV32F.encode
-    elif mnemonic in RV32A.instruction_map:
+    #if mnemonic in RV32A.instruction_map:
     #     return RV32A.encode
-    # if mnemonic in RV32M.instruction_map:
-    #     return RV32M.encode
+    if mnemonic in RV32M.instruction_map:
+        return RV32M.encode
     # if mnemonic in RV32C.instruction_map:
     #     return RV32C.encode
     raise ValueError(f"Unsupported instruction: {mnemonic}")
