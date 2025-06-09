@@ -16,6 +16,18 @@ r_type_instructions = {
     "sltu":  {"opcode": "0110011", "funct3": "011", "funct7": "0000000"},
 }
 
+# M-Type instructions
+m_type_instructions = {
+    "mul":    {"opcode": "0110011", "funct3": "000", "funct7": "0000001"},
+    "mulh":   {"opcode": "0110011", "funct3": "001", "funct7": "0000001"},
+    "mulhsu": {"opcode": "0110011", "funct3": "010", "funct7": "0000001"},
+    "mulhu":  {"opcode": "0110011", "funct3": "011", "funct7": "0000001"},
+    "div":    {"opcode": "0110011", "funct3": "100", "funct7": "0000001"},
+    "divu":   {"opcode": "0110011", "funct3": "101", "funct7": "0000001"},
+    "rem":    {"opcode": "0110011", "funct3": "110", "funct7": "0000001"},
+    "remu":   {"opcode": "0110011", "funct3": "111", "funct7": "0000001"},
+}
+
 # I-Type instructions
 i_type_instructions = {
     "addi":  {"opcode": "0010011", "funct3": "000"},
