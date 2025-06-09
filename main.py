@@ -18,7 +18,6 @@ def dispatch_encoder(mnemonic):
         return RV32I.encode
     # if mnemonic in RV32M.instruction_map:
     #     return RV32M.encode
-    # sau này thêm:
     # if mnemonic in RV32C.instruction_map:
     #     return RV32C.encode
     raise ValueError(f"Unsupported instruction: {mnemonic}")
@@ -30,7 +29,7 @@ def assemble():
 
     for line in asm_lines:
         try:
-            mnemonic = line.split()[0]
+            mnemonic = line.split()[0]  # Tách từ đầu tiên trong dòng (add, lw)
             encoder = dispatch_encoder(mnemonic)
             binary = encoder(line)
             hex_code = hex(int(binary, 2))[2:].zfill(8)
