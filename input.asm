@@ -52,3 +52,8 @@ auipc x5, 8192     # = 0x2000
 # System
 ecall
 ebreak
+
+fadd.s f1, f2, f3       # f1 = f2 + f3
+fsub.s f4, f5, f6       # f4 = f5 - f6
+fmul.s f7, f8, f9       # f7 = f8 * f9
+fdiv.s f10, f11, f12    # f10 = f11 / f12

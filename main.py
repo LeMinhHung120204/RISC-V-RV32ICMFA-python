@@ -16,6 +16,10 @@ def dispatch_encoder(mnemonic):
     """Trả về module encode phù hợp với từng loại instruction."""
     if mnemonic in RV32I.instruction_map:
         return RV32I.encode
+    if mnemonic in RV32F.instruction_map:
+        return RV32F.encode
+    # if mnemonic in RV32A.instruction_map:
+    #     return RV32A.encode
     # if mnemonic in RV32M.instruction_map:
     #     return RV32M.encode
     # if mnemonic in RV32C.instruction_map:
@@ -29,7 +33,7 @@ def assemble():
 
     for line in asm_lines:
         try:
-            mnemonic = line.split()[0]  # Tách từ đầu tiên trong dòng (add, lw)
+            mnemonic = line.split()[0].lower()  # Tách từ đầu tiên trong dòng (add, lw) viet thuong    
             encoder = dispatch_encoder(mnemonic)
             binary = encoder(line)
             hex_code = hex(int(binary, 2))[2:].zfill(8)

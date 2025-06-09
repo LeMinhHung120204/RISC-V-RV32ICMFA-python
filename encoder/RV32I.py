@@ -1,6 +1,19 @@
 # encoder/RV32I.py
 from utils.binutils import *
-from opcode_map import instruction_map
+from opcode_map import r_type_instructions, i_type_instructions, s_type_instructions, b_type_instructions, j_type_instructions
+
+instruction_map = {
+    **r_type_instructions,
+    **i_type_instructions,
+    **s_type_instructions,
+    **b_type_instructions,
+    **j_type_instructions,
+    "jalr": {"opcode": "1100111", "funct3": "000"},
+    "lui": {"opcode": "0110111"},
+    "auipc": {"opcode": "0010111"},
+    "ecall": {"opcode": "1110011", "imm": "0000000000000000"},
+    "ebreak": {"opcode": "1110011", "imm": "0000000000000001"},
+}
 
 def encode(instruction_line):
     parts = instruction_line.replace(',', '').split()
@@ -73,7 +86,8 @@ def encode(instruction_line):
         return imm + rd + opcode
 
     elif inst == "ecall" or inst == "ebreak":
-        return instruction_map[inst]["imm"] + "0" * 5 + "000" + "0" * 5 + instruction_map[inst]["opcode"]
+        imm = instruction_map[inst]["imm"]
+        return imm + "00000" + "000" + "00000" + instruction_map[inst]["opcode"]
 
     else:
         raise ValueError(f"Unhandled instruction format for: {inst}")

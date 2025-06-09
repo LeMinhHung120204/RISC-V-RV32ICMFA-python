@@ -57,23 +57,6 @@ j_type_instructions = {
     "jal":   {"opcode": "1101111"},
 }
 
-# I-Type (special) instructions
-jalr_instruction = {
-    "jalr":  {"opcode": "1100111", "funct3": "000"},
-}
-
-# U-Type instructions
-u_type_instructions = {
-    "lui":   {"opcode": "0110111"},
-    "auipc": {"opcode": "0010111"},
-}
-
-# System instructions (ecall, ebreak)
-system_instructions = {
-    "ecall":  {"opcode": "1110011", "funct3": "000", "imm": "000000000000"},
-    "ebreak": {"opcode": "1110011", "funct3": "000", "imm": "000000000001"},
-}
-
 #============================================================================================
 # RV32M Multiply Extension
 m_type_instructions = {
@@ -190,9 +173,6 @@ instruction_map = {
     **s_type_instructions,
     **b_type_instructions,
     **j_type_instructions,
-    **jalr_instruction,
-    **u_type_instructions,
-    **system_instructions,
     **f_type_instructions,
     **m_type_instructions,
     **a_type_instructions,
